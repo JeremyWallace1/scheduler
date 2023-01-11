@@ -26,7 +26,7 @@ export default function Application(props) {
   const [day, setDay] = useState("Monday");
 
   return (
-
+    <React.StrictMode>
     <main className="layout">
       <section className="sidebar">
         <img
@@ -52,5 +52,6 @@ export default function Application(props) {
         {/* Replace this with the schedule elements durint the "The Scheduler" activity. */}
       </section>
     </main>
+    </React.StrictMode>
   );
 }

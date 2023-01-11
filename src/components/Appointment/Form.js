@@ -5,9 +5,6 @@ import Button from "components/Button";
 export default function Form(props) {
   const [student, setStudent] = useState(props.student || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
-  console.log('student:', student);
-  console.log('interviewer:', interviewer);
-  console.log('props:', props);
 
   const reset = () => {
     setStudent("");
@@ -28,6 +25,7 @@ export default function Form(props) {
             name="name"
             type="text"
             placeholder="Enter Student Name"
+            value={student}
             onChange={(event) => setStudent(event.target.value)}
           />
         </form>
@@ -38,8 +36,8 @@ export default function Form(props) {
       </section>
       <section className="appointment__card-right">
         <section className="appointment__actions">
-          <Button danger onCancel={props.onCancel}>Cancel</Button>
-          <Button confirm onSave={props.onSave}>Save</Button>
+          <Button danger onClick={() => cancel(props)}>Cancel</Button>
+          <Button confirm onClick={props.onSave}>Save</Button>
         </section>
       </section>
     </main>
