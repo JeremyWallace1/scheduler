@@ -5,6 +5,9 @@ import Button from "components/Button";
 export default function Form(props) {
   const [student, setStudent] = useState(props.student || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
+  console.log('student:', student);
+  console.log('interviewer:', interviewer);
+  console.log('props:', props);
 
   const reset = () => {
     setStudent("");
@@ -19,7 +22,7 @@ export default function Form(props) {
   return (
     <main className="appointment__card appointment__card--create">
       <section className="appointment__card-left">
-        <form autoComplete="off">
+        <form autoComplete="off" onSubmit={event => event.preventDefault()}>
           <input
             className="appointment__create-input text--semi-bold"
             name="name"
@@ -29,8 +32,8 @@ export default function Form(props) {
           />
         </form>
         <InterviewerList 
-          interviewer={props.interviewers}
-          onChange={() => setInterviewer(props.interviewer.id)}
+          interviewers={props.interviewers}
+          onChange={setInterviewer}
         />
       </section>
       <section className="appointment__card-right">
