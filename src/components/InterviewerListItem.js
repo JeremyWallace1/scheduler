@@ -4,10 +4,8 @@ import classNames from "classnames";
 
 // holds a list of interviewers (holds all the InterviewerListItem components together)
 export default function InterviewerListItem(props) {
-  console.log('props.selected:', props.selected);
-
   const itemClass = classNames('interviewers__item', { "interviewers__item--selected": props.selected});
-  console.log('itemClass=', itemClass);
+
   return (
     <li 
       onClick={props.setInterviewer} 
