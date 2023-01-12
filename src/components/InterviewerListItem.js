@@ -3,7 +3,7 @@ import "components/InterviewerListItem.scss";
 import classNames from "classnames";
 
 // holds a list of interviewers (holds all the InterviewerListItem components together)
-export default function InterviewerListItem(props) {
+const InterviewerListItem = (props) => {
   const itemClass = classNames('interviewers__item', { "interviewers__item--selected": props.selected});
 
   return (
@@ -20,3 +20,5 @@ export default function InterviewerListItem(props) {
     </li>
   )
 };
+
+export default InterviewerListItem;

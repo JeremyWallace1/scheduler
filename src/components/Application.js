@@ -43,7 +43,7 @@ const appointments = {
   }
 };
 
-export default function Application(props) {
+const Application = (props) => {
   const [day, setDay] = useState("Monday");
   const [days, setDays] = useState([]);
 
@@ -92,3 +92,5 @@ export default function Application(props) {
     </main>
   );
 }
+
+export default Application;

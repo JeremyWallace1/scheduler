@@ -3,7 +3,7 @@ import "components/InterviewerList.scss";
 import InterviewerListItem from "./InterviewerListItem";
 
 // holds a list of interviewers (holds all the InterviewerListItem components together)
-export default function InterviewerList(props) {
+const InterviewerList = (props) => {
   const mapInterviewers = props.interviewers.map((interviewer) => {
     return (
       <InterviewerListItem 
@@ -27,3 +27,5 @@ export default function InterviewerList(props) {
     </section>
   )
 };
+
+export default InterviewerList;

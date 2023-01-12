@@ -4,7 +4,7 @@ import Header from "./Header";
 import Show from "./Show";
 import Empty from "./Empty";
 
-export default function Appointment(props) {
+const Appointment = (props) => {
   return (
     <article className="appointment">
       <Header time={props.time}/>
@@ -12,3 +12,5 @@ export default function Appointment(props) {
     </article>
   )
 };
+
+export default Appointment;

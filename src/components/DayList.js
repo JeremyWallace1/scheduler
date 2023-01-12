@@ -7,7 +7,7 @@
 import React from "react";
 import DayListItem from "components/DayListItem.js";
 
-export default function DayList(props) {
+const DayList = (props) => {
 
   // iterate over the props.days array to get individual DayListItem <li>'s displayed
   const mapDays = props.days.map((day) =>
@@ -26,3 +26,5 @@ export default function DayList(props) {
     </ul>
   );
 };
+
+export default DayList;
