@@ -14,19 +14,16 @@ const Application = (props) => {
 
   let dailyAppointments = [];
 
-  // useEffect(() => {
-  //   axios.get("/api/days").then((response) => {
-  //     setDays(response.data);
-  //   })
-  // }, []);
-  
   dailyAppointments = getAppointmentsForDay(state, state.day);
-  const mapAppointments = dailyAppointments.map(appointment =>
-    <Appointment 
-      key={appointment.id}
-      {...appointment}
-    />
-  );
+  const schedule = dailyAppointments.map(appointment => {
+    const interview = getInterview(state, appointment.interview);
+    return (
+      <Appointment 
+        key={appointment.id}
+        {...appointment}
+      />
+    );
+  });
 
   useEffect(() => {
     Promise.all([
@@ -34,18 +31,11 @@ const Application = (props) => {
       axios.get("/api/appointments"),
       axios.get("/api/interviewers")
     ]).then((all) => {
-      // console.log(all[0].data);
-      // console.log(all[1].data);
-      // console.log(all[2].data);
       setState(prev => ({...prev, days: all[0].data, appointments: all[1].data, interviewers: all[2].data }));
     });
   }, []);
 
   const setDay = day => setState({ ...state, day });
-
-  // const setDays = days => setState(prev => ({ ...prev, days }));
-
-  // const setAppointments = appointments => setState(prev => ({ ...prev, appointments }));
 
   return (
     <main className="layout">
@@ -71,8 +61,11 @@ const Application = (props) => {
       </section>
       <section className="schedule">
         <ul>
-          {mapAppointments}
-          <Appointment key="last" time="5pm" />
+          {schedule}
+          <Appointment 
+            key="last" 
+            time="5pm" 
+          />
         </ul>
       </section>
     </main>
