@@ -24,7 +24,7 @@ const DayListItem = (props) => {
   return (
     <li onClick={() => props.setDay(props.name)} className={dayClass} selected={props.selected}>
       <h2 className="text--regular">{props.name}</h2> 
-      <h3 className="text--light"><FormatSpots /></h3>
+      <h3 className="text--light"><FormatSpots spots={props.spots}/></h3>
     </li>
   );
 };
