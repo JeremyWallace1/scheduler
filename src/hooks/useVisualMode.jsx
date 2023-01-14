@@ -18,6 +18,8 @@ export default function useVisualMode(initial) {
     if (history.length > 1) {
       setHistory((prev) => [...prev.slice(0, -1)]);
       setMode(history[history.length - 2]);
+    } else {
+      setMode(initial);
     }
   };
 
