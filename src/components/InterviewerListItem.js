@@ -1,8 +1,9 @@
 import React from "react";
-import "components/InterviewerListItem.scss";
 import classNames from "classnames";
 
-// holds a list of interviewers (holds all the InterviewerListItem components together)
+import "components/InterviewerListItem.scss";
+
+// each individual Interviewer in the InterviewerList
 const InterviewerListItem = (props) => {
   const itemClass = classNames('interviewers__item', { "interviewers__item--selected": props.selected});
 

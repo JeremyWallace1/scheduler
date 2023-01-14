@@ -13,14 +13,9 @@ const Appointment = (props) => {
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";
   const CREATE = "CREATE";
-  // const CONFIRM = "CONFIRM";
-  // const STATUS = "STATUS";
-  // const EDIT = "EDIT";
-
-  const interviewers = [];
 
   const { mode, transition, back } = useVisualMode(
-    props.interview? SHOW : EMPTY
+    props.interview ? SHOW : EMPTY
   );
 
   return (
@@ -30,10 +25,10 @@ const Appointment = (props) => {
       {mode === SHOW && (
         <Show
           student={props.interview.student}
-          interviewer={props.interview.interviewer}
+          interviewer={props.interviewer.name}
         />
       )}
-      {mode === CREATE && <Form interviewers={interviewers} onCancel={() => back()} />}
+      {mode === CREATE && <Form interviewers={props.interviewers} onCancel={() => back()} />}
     </article>
   )
 };

@@ -1,30 +1,36 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "components/Application.scss";
+
 import DayList from "components/DayList";
 import Appointment from "./Appointment";
-import { getAppointmentsForDay, getInterview } from "helpers/selectors";
 
-const Application = (props) => {
+import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "helpers/selectors";
+
+import "components/Application.scss";
+
+const Application = () => {
   const [state, setState] = useState({
     day: "Monday",
     days: [],
-    appointments: {}
   });
 
-  let dailyAppointments = [];
-
-  dailyAppointments = getAppointmentsForDay(state, state.day);
+  const dailyAppointments = getAppointmentsForDay(state, state.day);
+  
   const schedule = dailyAppointments.map(appointment => {
     const interview = getInterview(state, appointment.interview);
+    const interviewers = getInterviewersForDay(state, state.day);
     return (
       <Appointment 
         key={appointment.id}
         {...appointment}
+        {...interview}
+        interviewers={interviewers}
+
       />
     );
   });
 
+  
   useEffect(() => {
     Promise.all([
       axios.get("/api/days"),
