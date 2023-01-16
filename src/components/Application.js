@@ -25,11 +25,15 @@ const Application = () => {
         {...appointment}
         {...interview}
         interviewers={interviewers}
+        bookInterview={bookInterview}
 
       />
     );
   });
 
+  const bookInterview = (id, interview) => {
+    console.log(id, interview);
+  }
   
   useEffect(() => {
     Promise.all([
