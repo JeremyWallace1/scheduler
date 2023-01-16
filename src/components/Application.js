@@ -26,17 +26,17 @@ const Application = () => {
       ...state.appointments,
       [id]: appointment
     };
-    setState({ ...state, appointments });
-    useEffect(() => {
-      axios.put(`/api/appointments/${id}`)
-
+    
+    return axios.put(`/api/appointments/${id}`, {interview})
+    .then((response) => {
+      setState({...state, appointments});
     })
-
   };
   
   const schedule = dailyAppointments.map(appointment => {
     const interview = getInterview(state, appointment.interview);
     const interviewers = getInterviewersForDay(state, state.day);
+    // debugger;
     return (
       <Appointment 
         key={appointment.id}

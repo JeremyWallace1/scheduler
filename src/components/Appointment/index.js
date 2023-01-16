@@ -10,6 +10,8 @@ import Form from "./Form";
 import "./styles.scss";
 
 const Appointment = (props) => {
+  // console.log('props:', props);
+
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";
   const CREATE = "CREATE";
@@ -17,14 +19,15 @@ const Appointment = (props) => {
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
-
+  
   const save = (name, interviewer) => {
     const interview = {
       student: name,
       interviewer
     };
-    props.bookInterview(props.id, interview);
-    transition(SHOW);
+    props.bookInterview(props.id, interview).then(() => {
+      transition(SHOW);
+    })
   };
 
   return (
