@@ -11,6 +11,21 @@ export default function useApplicationData() {
 
   const setDay = day => setState({ ...state, day });
 
+  const spotsRemaining = (day, add=true) => {
+    const newDays = [];
+    for (let i of state.days) {
+      if (i.name === day) {
+        if (add) {
+          i.spots += 1;
+        } else {
+          i.spots -= 1;
+        }
+      }
+      newDays.push(i);
+    }
+    setState(prev => ({...prev, newDays }));
+  }
+
   const bookInterview = (id, interview) => {
     const appointment = {
       ...state.appointments[id],
@@ -25,6 +40,7 @@ export default function useApplicationData() {
     .then((response) => {
       setState({...state, appointments});
     })
+    .then((response) => spotsRemaining(state.day, false))
   };
 
   const cancelInterview = (id) => {
@@ -40,6 +56,7 @@ export default function useApplicationData() {
     .then((response) => {
       setState({...state, appointments});
     })
+    .then((response) => spotsRemaining(state.day, true))
   };
 
   useEffect(() => {
