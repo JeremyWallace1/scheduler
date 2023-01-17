@@ -11,20 +11,23 @@ export default function useApplicationData() {
 
   const setDay = day => setState({ ...state, day });
 
-  const spotsRemaining = (day, add=true) => {
-    const newDays = [];
-    for (let i of state.days) {
-      if (i.name === day) {
-        if (add) {
-          i.spots += 1;
-        } else {
-          i.spots -= 1;
+  const updateSpots = (state, appointments, id) => {
+    const newDays = JSON.parse(JSON.stringify(state.days));
+    for (let day in newDays) {
+      let count = 0;
+      for (let i = 0; i < newDays[day].appointments.length; i++) {
+        for (let appointment in appointments) {
+          if (newDays[day].appointments[i].toString() === appointment) {
+            if (appointments[appointment].interview) {
+              count++;
+            }
+          }
         }
       }
-      newDays.push(i);
+      newDays[day].spots = 5 - count;
     }
-    setState(prev => ({...prev, newDays }));
-  }
+    return newDays;
+  };
 
   const bookInterview = (id, interview) => {
     const appointment = {
@@ -35,28 +38,31 @@ export default function useApplicationData() {
       ...state.appointments,
       [id]: appointment
     };
-    
+
     return axios.put(`/api/appointments/${id}`, {interview})
     .then((response) => {
-      setState({...state, appointments});
+      const days = updateSpots(state, appointments, id)
+      console.log('days:', days);
+      setState({...state, appointments, days});
     })
-    .then((response) => spotsRemaining(state.day, false))
   };
 
   const cancelInterview = (id) => {
     const appointment = {
       ...state.appointments[id],
       interview: null
-    }
+    };
     const appointments = {
       ...state.appointments,
       [id]: appointment
-    }
+    };
+
     return axios.delete(`/api/appointments/${id}`)
     .then((response) => {
-      setState({...state, appointments});
+      const days = updateSpots(state, appointments, id)
+      console.log('days:', days);
+      setState({...state, appointments, days});
     })
-    .then((response) => spotsRemaining(state.day, true))
   };
 
   useEffect(() => {
