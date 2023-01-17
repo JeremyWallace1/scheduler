@@ -6,27 +6,24 @@ export default function useApplicationData() {
   const [state, setState] = useState({
     day: "Monday",
     days: [],
+    interviewers: {},
     appointments: {}
   });
 
   const setDay = day => setState({ ...state, day });
 
-  const updateSpots = (state, appointments, id) => {
-    const newDays = JSON.parse(JSON.stringify(state.days));
-    for (let day in newDays) {
-      let count = 0;
-      for (let i = 0; i < newDays[day].appointments.length; i++) {
-        for (let appointment in appointments) {
-          if (newDays[day].appointments[i].toString() === appointment) {
-            if (appointments[appointment].interview) {
-              count++;
-            }
-          }
-        }
+  const updateSpots = (state, appointments) => {
+    const dayObj = state.days.find(d => d.name === state.day);
+
+    let spots = 0;
+    for (const id of dayObj.appointments) {
+      const appointment = appointments[id];
+      if (!appointment.interview) {
+        spots++;
       }
-      newDays[day].spots = 5 - count;
     }
-    return newDays;
+    const day = {...dayObj, spots};
+    return state.days.map(d => d.name === state.day ? day: d);
   };
 
   const bookInterview = (id, interview) => {
