@@ -83,10 +83,11 @@ export default {
 
   put: jest.fn((url, id, interview) => {
     if (url === `/api/appointments/${id}`, {interview}) {
+      // console.log('put being captured by JEST');
       return Promise.resolve({ 
         status: 204, 
         statusText: "No Content" 
-      });
+      })
     }
   }),
 

@@ -43,6 +43,7 @@ const Appointment = (props) => {
         transition(SHOW);
       })
       .catch((error) => {
+        console.log('error:', error)
         transition(ERROR_SAVE, true);
       })
   };
