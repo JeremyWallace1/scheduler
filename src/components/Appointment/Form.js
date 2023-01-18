@@ -2,11 +2,23 @@ import React, { useState } from "react";
 
 import InterviewerList from "components/InterviewerList";
 import Button from "components/Button";
+import { resetWarningCache } from "prop-types";
 
 const Form = (props) => {
   const [student, setStudent] = useState(props.student || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
   const [error, setError] = useState("");
+
+  const reset = () => {
+    setStudent("");
+    setError("");
+    setInterviewer(null);
+  };
+
+  const cancel = () => {
+    reset();
+    props.onCancel();
+  };
 
   const validate = () => {
     if (student === "") {
@@ -17,7 +29,7 @@ const Form = (props) => {
       setError("Please select an interviewer");
       return;
     }
-
+    setError("");
     props.onSave(student, interviewer);
   };
 
@@ -47,7 +59,7 @@ const Form = (props) => {
       </section>
       <section className="appointment__card-right">
         <section className="appointment__actions">
-          <Button danger onClick={props.onCancel}>Cancel</Button>
+          <Button danger onClick={cancel}>Cancel</Button>
           <Button confirm onClick={() => validate()}>Save</Button>
         </section>
       </section>
