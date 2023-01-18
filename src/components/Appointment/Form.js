@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 import InterviewerList from "components/InterviewerList";
 import Button from "components/Button";
-import { resetWarningCache } from "prop-types";
 
 const Form = (props) => {
   const [student, setStudent] = useState(props.student || "");
