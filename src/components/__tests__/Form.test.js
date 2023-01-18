@@ -69,10 +69,9 @@ describe("Form", () => {
         interviewers={interviewers}
         onSave={onSave}
         student="Lydia Miller-Jones"
-        interviewer={interviewers[0]}
+        interviewer={interviewers[0].id}
       />
     );
-  
     /* 3. Click the save button */
     fireEvent.click(getByText("Save"));
   
