@@ -90,13 +90,15 @@ export default {
     }
   }),
 
-  delete: jest.fn((url, id) => {
-    if (url === `/api/appointments/${id}`) {
+  delete: jest.fn((url, id, interview) => {
+    // console.log('delete being captured by JEST');
+    // console.log('url:', url);
+    if (url === `/api/appointments/${id}`, {interview}) {
       return Promise.resolve({
         status: 204,
         statusText: "No Content"
       });
     }
   })
-  
+
 };

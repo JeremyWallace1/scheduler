@@ -47,7 +47,6 @@ describe("Form", () => {
       <Form interviewers={interviewers} onSave={onSave} student="Lydia Miller-Jones" />
     );
   
-    /* 3. Click the save button */
     fireEvent.click(getByText("Save"));
   
     expect(getByText(/please select an interviewer/i)).toBeInTheDocument();
