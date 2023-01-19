@@ -42,7 +42,7 @@
       The main screen of the scheduler app:
     </td>
     <td style="text-align: center">
-      <a href="https://https://github.com/JeremyWallace1/scheduler/tree/master/images/screenshot1.jpg"><img src="./images/screenshot1.jpg" alt="Main screen of the scheduler app" width="800"/></a>
+      <a href="https://github.com/JeremyWallace1/scheduler/blob/master/images/screenshot1.jpg"><img src="./images/screenshot1.jpg" alt="Main screen of the scheduler app" width="800"/></a>
     </td>
   </tr>
   <tr>
@@ -50,7 +50,7 @@
       A selected appointment:
     </td>
     <td style="text-align: center">
-      <a href="https://https://github.com/JeremyWallace1/scheduler/tree/master/images/screenshot2.jpg"><img src="./images/screenshot2.jpg" alt="A selected appointment" width="800"/></a>
+      <a href="https://github.com/JeremyWallace1/scheduler/blob/master/images/screenshot2.jpg"><img src="./images/screenshot2.jpg" alt="A selected appointment" width="800"/></a>
     </td>
   </tr>
   <tr>
@@ -58,7 +58,7 @@
       Confirmation screen:
     </td>
     <td style="text-align: center">
-      <a href="https://https://github.com/JeremyWallace1/scheduler/tree/master/images/screenshot3.jpg"><img src="./images/screenshot3.jpg" alt="Confirmation screen" width="800"/></a>
+      <a href="https://github.com/JeremyWallace1/scheduler/blob/master/images/screenshot3.jpg"><img src="./images/screenshot3.jpg" alt="Confirmation screen" width="800"/></a>
     </td>
   </tr>
   <tr>
@@ -66,7 +66,7 @@
       Deleting screen:
     </td>
     <td style="text-align: center">
-      <a href="https://https://github.com/JeremyWallace1/scheduler/tree/master/images/screenshot4.jpg"><img src="./images/screenshot4.jpg" alt="Deleting screen" width="800"/></a>
+      <a href="https://github.com/JeremyWallace1/scheduler/blob/master/images/screenshot4.jpg"><img src="./images/screenshot4.jpg" alt="Deleting screen" width="800"/></a>
     </td>
   </tr>
   <tr>
@@ -74,7 +74,7 @@
       Creating New Appointment:
     </td>
     <td style="text-align: center">
-      <a href="https://https://github.com/JeremyWallace1/scheduler/tree/master/images/screenshot5.jpg"><img src="./images/screenshot5.jpg" alt="Creating New Appointment" width="800"/></a>
+      <a href="https://github.com/JeremyWallace1/scheduler/blob/master/images/screenshot5.jpg"><img src="./images/screenshot5.jpg" alt="Creating New Appointment" width="800"/></a>
     </td>
   </tr>
   <tr>
@@ -82,7 +82,7 @@
       Creating New Appointment:
     </td>
     <td style="text-align: center">
-      <a href="https://https://github.com/JeremyWallace1/scheduler/tree/master/images/screenshot5.jpg"><img src="./images/screenshot5.jpg" alt="Creating New Appointment" width="800"/></a>
+      <a href="https://github.com/JeremyWallace1/scheduler/blob/master/images/screenshot6.jpg"><img src="./images/screenshot5.jpg" alt="Creating New Appointment" width="800"/></a>
     </td>
   </tr>
 </table>
