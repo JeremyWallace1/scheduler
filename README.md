@@ -82,7 +82,7 @@
       Creating New Appointment:
     </td>
     <td style="text-align: center">
-      <a href="https://https://github.com/JeremyWallace1/scheduler/tree/master/images/screenshot5.jpg"><img src="./images/screenshot5.jpg" alt="Creating New Appointment" height="200"/></a>
+      <a href="https://https://github.com/JeremyWallace1/scheduler/tree/master/images/screenshot5.jpg"><img src="./images/screenshot5.jpg" alt="Creating New Appointment" width="800"/></a>
     </td>
   </tr>
 </table>
