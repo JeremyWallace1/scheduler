@@ -7,7 +7,6 @@ import "components/InterviewerList.scss";
 
 
 // holds a list of interviewers (holds all the InterviewerListItem components together)
-
 const InterviewerList = (props) => {
   const mapInterviewers = props.interviewers.map((interviewer) => {
     return (
@@ -30,7 +29,7 @@ const InterviewerList = (props) => {
         {mapInterviewers}
       </ul>
     </section>
-  )
+  );
 };
 
 InterviewerList.propTypes = {

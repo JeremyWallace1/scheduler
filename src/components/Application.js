@@ -30,7 +30,6 @@ const Application = (props) => {
         interviewers={interviewers}
         bookInterview={bookInterview}
         cancelInterview={cancelInterview}
-
       />
     );
   });
@@ -68,6 +67,6 @@ const Application = (props) => {
       </section>
     </main>
   );
-}
+};
 
 export default Application;

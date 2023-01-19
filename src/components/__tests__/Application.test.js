@@ -1,15 +1,11 @@
 import React from "react";
 import axios from "axios";
 
-import { getByText, render, cleanup, waitForElement, fireEvent, prettyDOM, getAllByTestId, getByAltText, getByPlaceholderText, queryByText, queryByAltText } from "@testing-library/react";
+import { getByText, render, cleanup, waitForElement, fireEvent,  getAllByTestId, getByAltText, getByPlaceholderText, queryByText, queryByAltText } from "@testing-library/react";
 
 import Application from "components/Application";
 
 afterEach(cleanup);
-
-// it("renders without crashing", () => {
-//   render(<Application />);
-// });
 
 describe("Application", () => {
 

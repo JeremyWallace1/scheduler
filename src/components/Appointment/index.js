@@ -13,8 +13,6 @@ import Error from "./Error";
 import "./styles.scss";
 
 const Appointment = (props) => {
-  // console.log('props:', props);
-
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";
   const CREATE = "CREATE";
@@ -132,7 +130,7 @@ const Appointment = (props) => {
         />
       }
     </article>
-  )
+  );
 };
 
 export default Appointment;

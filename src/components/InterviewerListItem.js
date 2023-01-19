@@ -19,7 +19,7 @@ const InterviewerListItem = (props) => {
       />
       {props.selected ? <span>{props.name}</span> : ""}
     </li>
-  )
+  );
 };
 
 export default InterviewerListItem;

@@ -63,7 +63,7 @@ const Form = (props) => {
         </section>
       </section>
     </main>
-  )
+  );
 };
 
 export default Form;

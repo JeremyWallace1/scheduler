@@ -107,7 +107,6 @@ storiesOf("Button", module)
       <InterviewerListItem
         name={interviewer.name}
         avatar={interviewer.avatar}
-        /* An argument can be passed to a function in Storybook by wrapping it in () after the name of the action, as seen in the code above. */
         setInterviewer={() => action("setInterviewer")(interviewer.id)}
       />
     ));
@@ -172,4 +171,4 @@ storiesOf("Button", module)
           />
           <Appointment time="5pm" />
         </Fragment>
-      ))
+      ));

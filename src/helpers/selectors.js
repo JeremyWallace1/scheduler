@@ -37,4 +37,4 @@ export function getInterview(state, interview) {
   } 
 
   return interviewObject;
-}
+};
