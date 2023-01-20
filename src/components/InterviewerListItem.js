@@ -4,6 +4,12 @@ import classNames from "classnames";
 import "components/InterviewerListItem.scss";
 
 // each individual Interviewer in the InterviewerList
+/* Props passed from InterviewerList are:
+  setInterviewer function
+  avatar of interviewer
+  name of interviewer
+  selected (boolean) of interviewer
+*/
 const InterviewerListItem = (props) => {
   const itemClass = classNames('interviewers__item', { "interviewers__item--selected": props.selected});
 

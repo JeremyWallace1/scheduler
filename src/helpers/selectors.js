@@ -1,3 +1,4 @@
+// the getAppointmentsForDay function uses the days state object and pushes them into a new appointments array, then maps through that array to get the appontments for each individual day.
 export function getAppointmentsForDay(state, day) {
   const appointments = [];
 
@@ -13,6 +14,7 @@ export function getAppointmentsForDay(state, day) {
   )
 };
 
+// the getInterviewersForDay function maps through the days state to produce the interviewers available for each day.
 export function getInterviewersForDay(state, day) {
   const interviewers = [];
 
@@ -28,6 +30,7 @@ export function getInterviewersForDay(state, day) {
   )
 };
 
+// the getInterview function is passed an interview object. if there is an interview it returns the interviewer and student
 export function getInterview(state, interview) {
   const interviewObject = (interview) ? {} : null;
   

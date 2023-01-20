@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 import axios from "axios";
 
+// the useApplicationData hook sets the states of the day, days, interviewers and appointments.
 export default function useApplicationData() {
   const [state, setState] = useState({
     day: "Monday",
@@ -10,8 +11,10 @@ export default function useApplicationData() {
     appointments: {}
   });
 
+  // sets the currently selected day
   const setDay = day => setState({ ...state, day });
 
+  // updates the number of spots remaining on each day
   const updateSpots = (state, appointments) => {
     const dayObj = state.days.find(d => d.name === state.day);
 
@@ -26,6 +29,7 @@ export default function useApplicationData() {
     return state.days.map(d => d.name === state.day ? day: d);
   };
 
+  // stores the interview in the database (using axios.put)
   const bookInterview = (id, interview) => {
     const appointment = {
       ...state.appointments[id],
@@ -43,6 +47,7 @@ export default function useApplicationData() {
     })
   };
 
+  // deletes the interview in the database (using axios.delete)
   const cancelInterview = (id) => {
     const appointment = {
       ...state.appointments[id],
@@ -60,6 +65,7 @@ export default function useApplicationData() {
     })
   };
 
+  // gets all the days, appointments and interviewers for the app and sets their states
   useEffect(() => {
     Promise.all([
       axios.get("/api/days"),

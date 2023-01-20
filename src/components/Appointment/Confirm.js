@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "components/Button";
 
+// the Confirm component is passed props from Appointment/index.js for a message, the onCancel function and the onConfirm function. It is used for confirming deletion of an appointment
 const Confirm = (props) => {
   return (
     <main className="appointment__card appointment__card--confirm">

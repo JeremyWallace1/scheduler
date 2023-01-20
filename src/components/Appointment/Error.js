@@ -1,5 +1,6 @@
 import React from "react";
 
+// the Error component only shows when there is an error and gets message and onClose props from Appointment/index.js
 const Error = (props) => {
   return (
     <main className="appointment__card appointment__card--error">

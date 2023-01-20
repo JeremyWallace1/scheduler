@@ -12,6 +12,7 @@ import Error from "./Error";
 
 import "./styles.scss";
 
+// The Appointment/index.js renders a different Appointment object depending on the state of the Appointment (EMPTY, SHOW, CREATE, SAVING, etc.)
 const Appointment = (props) => {
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";
@@ -23,10 +24,12 @@ const Appointment = (props) => {
   const ERROR_SAVE = "ERROR_SAVE";
   const ERROR_DELETE = "ERROR_DELETE";
 
+  // if there is an interview, show it, otherwise just an empty style Appointment block (add button) (uses hooks/useVisualMode.jsx to set state)
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
   
+  // save function for saving the student name and interviewer (bookInterview passed from Application.js which imports it from hooks/useApplicationData.jsx)
   const save = (name, interviewer) => {
     const interview = {
       student: name,
@@ -46,6 +49,7 @@ const Appointment = (props) => {
       })
   };
 
+  // deletes the currently selected interview (cancelInterview passed from Application.js which imports it from hooks/useApplicationData.jsx)
   const destroy = (event) => {
     transition(DELETING, true);
 
@@ -59,10 +63,12 @@ const Appointment = (props) => {
       })
   };
 
+  // confirm before deleting appointment
   const confirmDestroy = () => {
     transition(CONFIRM)
   };
 
+  // change to editing mode for an appointment
   const editAppointment = () => {
     transition(EDIT)
   };
@@ -81,14 +87,14 @@ const Appointment = (props) => {
         <Show
           student={props.interview.student}
           interviewer={props.interviewer.name}
-          onEdit={() => editAppointment()}
-          onDelete={() => confirmDestroy()}
+          onEdit={editAppointment}
+          onDelete={confirmDestroy}
         />
       )}
       {mode === CREATE && 
         <Form 
           interviewers={props.interviewers} 
-          onCancel={() => back()} 
+          onCancel={back} 
           onSave={save} 
         />}
       {mode === SAVING &&
@@ -104,7 +110,7 @@ const Appointment = (props) => {
       {mode === CONFIRM &&
         <Confirm 
           message='Are you sure you would like to delete?'
-          onCancel={() => back()}
+          onCancel={back}
           onConfirm={destroy}
         />
       }
@@ -113,20 +119,20 @@ const Appointment = (props) => {
           student={props.interview.student}
           interviewer={props.interviewer.id}
           interviewers={props.interviewers} 
-          onCancel={() => back()} 
+          onCancel={back} 
           onSave={save} 
         />
       }
       {mode === ERROR_SAVE &&
         <Error
           message='Error Saving Appointment'
-          onClose={() => back()}
+          onClose={back}
         />
       }
       {mode === ERROR_DELETE &&
         <Error
           message='Error Deleting Appointment'
-          onClose={() => back()}
+          onClose={back}
         />
       }
     </article>

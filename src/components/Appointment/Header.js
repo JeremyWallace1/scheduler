@@ -1,5 +1,6 @@
 import React from "react";
 
+// the Header is on every Appointment block and shows the time (from props passed by Appointment/index.js)
 const Header = (props) => {
   return (
     <header className="appointment__time">

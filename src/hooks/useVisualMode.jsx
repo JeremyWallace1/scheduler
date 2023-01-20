@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+// sets the states for the mode (EMPTY, SAVING, DELETING, SHOW, etc.)
+// also stores a history state so we can return to a previous state if Cancel is clicked (deleting) or Close is clicked (error)
 export default function useVisualMode(initial) {
   const [mode, setMode] = useState(initial);
   const [history, setHistory] = useState([initial]);
@@ -14,6 +16,7 @@ export default function useVisualMode(initial) {
     }
   };
 
+  // returns to the previous state
   const back = function () {
     if (history.length > 1) {
       setHistory((prev) => [...prev.slice(0, -1)]);

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import InterviewerList from "components/InterviewerList";
 import Button from "components/Button";
 
+// the Form is for creating a new appointment and gets props from Appointment/index.js that are student, interviewer, onCancel (function), onSave (function), interviewers(object)
 const Form = (props) => {
   const [student, setStudent] = useState(props.student || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
@@ -51,7 +52,6 @@ const Form = (props) => {
         </section>
         <InterviewerList 
           interviewers={props.interviewers}
-          // interviewers={props.interviewers.toString()}
           value={interviewer}
           onChange={setInterviewer}
         />
@@ -59,7 +59,7 @@ const Form = (props) => {
       <section className="appointment__card-right">
         <section className="appointment__actions">
           <Button danger onClick={cancel}>Cancel</Button>
-          <Button confirm onClick={() => validate()}>Save</Button>
+          <Button confirm onClick={validate}>Save</Button>
         </section>
       </section>
     </main>

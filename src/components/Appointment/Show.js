@@ -1,5 +1,6 @@
 import React from "react";
 
+// Show shows an appointment taking in the student, interviewer, onEdit and onDelete props from Appointment/index.js
 const Show = (props) => {
   return (
     <main className="appointment__card appointment__card--show">

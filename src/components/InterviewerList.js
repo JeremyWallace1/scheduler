@@ -7,6 +7,11 @@ import "components/InterviewerList.scss";
 
 
 // holds a list of interviewers (holds all the InterviewerListItem components together)
+/* Props received are:
+  * Interviewers
+  * value
+  * onChange function
+*/
 const InterviewerList = (props) => {
   const mapInterviewers = props.interviewers.map((interviewer) => {
     return (

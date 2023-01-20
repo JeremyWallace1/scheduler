@@ -1,3 +1,4 @@
+// mocking to test success and failures of database communication (get, put, delete)
 const fixtures = {
   days: [
     {
@@ -83,7 +84,6 @@ export default {
 
   put: jest.fn((url, id, interview) => {
     if (url === `/api/appointments/${id}`, {interview}) {
-      // console.log('put being captured by JEST');
       return Promise.resolve({ 
         status: 204, 
         statusText: "No Content" 
@@ -92,8 +92,6 @@ export default {
   }),
 
   delete: jest.fn((url, id, interview) => {
-    // console.log('delete being captured by JEST');
-    // console.log('url:', url);
     if (url === `/api/appointments/${id}`, {interview}) {
       return Promise.resolve({
         status: 204,
